@@ -28,7 +28,7 @@ public class FelineParameterizedTest {
     }
 
     @Test
-    public void getKittensWithParameterReturnParameter(){
+    public void getKittensWithParameterReturnParameterTest(){
         int expectedKittenCount = kittensCount;
         int actualKittenCount = feline.getKittens(kittensCount);
         assertEquals("Метод getKittens с параметром класса Feline не возвращает количество,указанное в параметре", expectedKittenCount, actualKittenCount);

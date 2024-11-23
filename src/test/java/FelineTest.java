@@ -16,19 +16,19 @@ public class FelineTest {
     }
 
     @Test
-    public void eatMeatReturnListOfPredatorFood() throws Exception {
+    public void eatMeatReturnListOfPredatorFoodTest() throws Exception {
         List<String> actualListOfFood = feline.eatMeat();
         assertEquals("Метод eatMeat класса Feline не возвращает список еды хищника", PREDATOR_FOOD, actualListOfFood);
     }
     @Test
-    public void getFamilyReturnKoshachi(){
+    public void getFamilyReturnKoshachiTest(){
         String expectedFamily  = "Кошачьи";
         String actualFamily = feline.getFamily();
         assertEquals("Метод getFamily класса Feline не возвращает \"Кошачьи\"", expectedFamily, actualFamily);
     }
 
     @Test
-    public void getKittensNoParametersReturnOne(){
+    public void getKittensNoParametersReturnOneTest(){
         int expectedKittensCount  = 1;
         int actualKittensCount  = feline.getKittens();
         assertEquals("Метод getKittens без параметров класса Feline не возвращает \"1\"", expectedKittensCount, actualKittensCount);

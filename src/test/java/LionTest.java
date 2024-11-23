@@ -1,5 +1,6 @@
 import com.example.Feline;
 import com.example.Lion;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -18,33 +19,29 @@ public class LionTest {
     Feline feline;
 
     @Test
-    public void doesHaveManeSexMaleTrue() throws Exception {
+    public void doesHaveManeSexMaleTrueTest() throws Exception {
         Lion lion = new Lion("Самец", feline);
         boolean actualHasMane = lion.doesHaveMane();
         assertTrue("Поле doesHaveMane класса Lion равно false при создании объекта мужского пола", actualHasMane);
     }
 
     @Test
-    public void doesHaveManeSexFemaleFalse() throws Exception {
+    public void doesHaveManeSexFemaleFalseTest() throws Exception {
         Lion lion = new Lion("Самка", feline);
         boolean actualHasMane = lion.doesHaveMane();
         assertFalse("Поле doesHaveMane класса Lion равно true при создании объекта женского пола", actualHasMane);
     }
 
-    @Test(expected = Exception.class)
-    public void lionInvalidSexThrowsException() throws Exception {
-        Lion lion = new Lion("Ребенок", feline);
+    @Test()
+    public void lionInvalidSexThrowsExceptionTest() {
+        Assert.assertThrows("Конструктор класса Lion не выбрасывает исключение при указании неправильного пола", Exception.class, ()-> new Lion("Ребенок", feline));
     }
 
     @Test()
-    public void lionCheckExceptionText(){
-        try{
-            Lion lion = new Lion("Ребенок", feline);
-        }
-        catch(Exception e){
-            String actualExceptionText = e.getMessage();
-            assertEquals("Текст исключения конструктора класса Lion неправильный",LION_CONSTRUCTOR_EXCEPTION_MESSAGE, actualExceptionText);
-        }
+    public void lionCheckExceptionTextTest(){
+        Exception exception = Assert.assertThrows(Exception.class, ()-> new Lion("Ребенок", feline));
+        assertEquals("Текст исключения конструктора класса Lion неправильный",LION_CONSTRUCTOR_EXCEPTION_MESSAGE, exception.getMessage());
+
     }
 
     @Test

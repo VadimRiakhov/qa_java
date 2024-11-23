@@ -23,21 +23,21 @@ public class AlexLionTest {
     }
 
     @Test
-    public void getFriendsReturnListOfFriends(){
+    public void getFriendsReturnListOfFriendsTest(){
         List<String> expectedListOfFriends = List.of("Марти", "Глория", "Мелман");
         List<String> actualListOfFriends = alexLion.getFriends();
         assertEquals("Список друзей льва Алекса не совпадает", expectedListOfFriends, actualListOfFriends);
     }
 
     @Test
-    public void getPlaceOfLivingReturnNewYorkZoo(){
+    public void getPlaceOfLivingReturnNewYorkZooTest(){
         String expectedPlaceOfLiving = "Зоопарк Нью-Йорка";
         String actualPlaceOfLiving = alexLion.getPlaceOfLiving();
         assertEquals("Место проживания льва Алекса не соответствует действительности", expectedPlaceOfLiving, actualPlaceOfLiving);
     }
 
     @Test
-    public void getKittensReturnZero(){
+    public void getKittensReturnZeroTest(){
         int expectedKittensCount = 0;
         int actualKittensCount = alexLion.getKittens();
         assertEquals("Метод getKittens возвращает значение, отличное от нуля", expectedKittensCount, actualKittensCount);

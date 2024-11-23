@@ -25,14 +25,14 @@ public class CatTest {
     }
 
     @Test
-    public void getSoundReturnMyau(){
+    public void getSoundReturnMyauTest(){
         String expectedSound = "Мяу";
         String actualSound = cat.getSound();
         assertEquals("Метод getSound класса Cat не возвращает \"Мяу\"", expectedSound, actualSound);
     }
 
     @Test
-    public void getFoodReturnPredatorFood() throws Exception {
+    public void getFoodReturnPredatorFoodTest() throws Exception {
         Mockito.when(cat.getFood()).thenReturn(PREDATOR_FOOD);
         List<String> actualListOfFood = cat.getFood();
         assertEquals("Метод getFood класса Cat не возвращает список пищи хищника", PREDATOR_FOOD, actualListOfFood);

@@ -31,7 +31,7 @@ public class AnimalParameterizedTest {
     }
 
     @Test
-    public void getFoodReturnListOfFood() throws Exception {
+    public void getFoodReturnListOfFoodTest() throws Exception {
         List<String> expectedAnimalFood = animalFood;
         List<String> actualAnimalFood = animal.getFood(animalKind);
         assertEquals("Список еды не соответствует виду животного", expectedAnimalFood, actualAnimalFood);

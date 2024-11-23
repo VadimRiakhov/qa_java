@@ -1,4 +1,5 @@
 import com.example.Animal;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,20 +14,15 @@ public class AnimalTest {
         animal = new Animal();
     }
 
-    @Test(expected = Exception.class)
-    public void getFoodInvalidAnimalKindThrowsException() throws Exception {
-        animal.getFood("Зверь");
+    @Test()
+    public void getFoodInvalidAnimalKindThrowsExceptionTest() {
+        Assert.assertThrows("Метод getFood класса Animal не выбрасывает исключение при указании неверного вида животного", Exception.class, ()->animal.getFood("Зверь"));
     }
 
     @Test()
-    public void getFoodCheckExceptionText(){
-        try{
-            animal.getFood("Зверь");
-        }
-        catch(Exception e){
-            String actualExceptionText = e.getMessage();
-            assertEquals("Текст исключения метода getFood неправильный",ANIMAL_KIND_EXCEPTION_MESSAGE, actualExceptionText);
-        }
+    public void getFoodCheckExceptionTextTest(){
+        Exception exception = Assert.assertThrows(Exception.class, ()->animal.getFood("Зверь"));
+        assertEquals("Текст исключения метода getFood неправильный",ANIMAL_KIND_EXCEPTION_MESSAGE, exception.getMessage());
     }
 
     @Test()
